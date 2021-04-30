@@ -1,0 +1,18 @@
+<ul>
+
+    <li *ngFor="let hero of heros; let i = index">{{ (i+1) + ') ' + hero }}</li>
+
+</ul>
+
+<!-- El noDeleted es una referencia local -->
+<h3 *ngIf="heroDeleted; else noDeleted">Hero deleted: {{heroDeleted}}</h3>
+
+<!-- las referencias locales se pueden identificar por el númeral (#). Las referencias son del lado del template
+    El ng-template no tiene ninguna contraposición en el html -->
+<ng-template #noDeleted>
+    <h3>No borrado</h3>
+</ng-template>
+
+
+
+<button (click)="deleteHero()" *ngIf="heros.length > 0">Delete hero</button>
